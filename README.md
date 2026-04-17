@@ -1,5 +1,8 @@
 # diffyml-action
 
+[![Test Action](https://github.com/szhekpisov/diffyml-action/actions/workflows/test-action.yml/badge.svg)](https://github.com/szhekpisov/diffyml-action/actions/workflows/test-action.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 GitHub Action to compare YAML files structurally using [diffyml](https://github.com/szhekpisov/diffyml).
 
 ## Usage
