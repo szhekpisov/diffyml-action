@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: diffyml CLI bug or feature request
+    url: https://github.com/szhekpisov/diffyml/issues
+    about: For bugs in the diff output, comparison logic, output formats, or other CLI behavior — open the issue on the diffyml repo.

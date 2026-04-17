@@ -1,0 +1,124 @@
+name: Bug Report
+description: Report a bug in the diffyml GitHub Action
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! This template is for issues with the **action itself** (download,
+        checksum/signature verification, caching, output capture, exit-code handling, etc.).
+
+        If the bug is about how diffyml compares files (wrong diff, missing fields, formatting),
+        please report it at https://github.com/szhekpisov/diffyml/issues instead.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened? What did you expect to happen instead?
+      placeholder: |
+        When the action runs on macos-latest, the checksum verification step fails with...
+        I expected it to download and verify successfully.
+    validations:
+      required: true
+
+  - type: textarea
+    id: workflow-snippet
+    attributes:
+      label: Workflow snippet
+      description: >-
+        The step(s) that invoke the action. Redact secrets but keep the structure intact.
+      render: yaml
+      placeholder: |
+        - uses: szhekpisov/diffyml-action@v1
+          with:
+            from: old.yaml
+            to: new.yaml
+            version: 'latest'
+    validations:
+      required: true
+
+  - type: input
+    id: action-version
+    attributes:
+      label: Action version (ref)
+      description: The git ref you used (e.g. `v1`, `v1.0.0`, a SHA, or `main`).
+      placeholder: "v1"
+    validations:
+      required: true
+
+  - type: input
+    id: diffyml-version
+    attributes:
+      label: diffyml version resolved
+      description: The version of diffyml the action downloaded (visible in the "Resolve version" step logs).
+      placeholder: "1.5.20"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: runner
+    attributes:
+      label: Runner
+      description: Which runner did the action run on?
+      options:
+        - ubuntu-latest
+        - ubuntu-22.04
+        - ubuntu-24.04
+        - macos-latest
+        - macos-13
+        - macos-14
+        - macos-15
+        - self-hosted (Linux)
+        - self-hosted (macOS)
+        - other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: failing-step
+    attributes:
+      label: Which step failed?
+      description: From the action's job log.
+      options:
+        - Resolve version
+        - Cache diffyml binary
+        - Install cosign
+        - Install diffyml (download / checksum / signature)
+        - Run diffyml
+        - Output capture
+        - Other / not sure
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: inputs-used
+    attributes:
+      label: Inputs in use
+      description: Check any non-default inputs that were set.
+      options:
+        - label: "`version` pinned to a specific release"
+        - label: "`output` set to a non-default format"
+        - label: "`fail-on-diff: false`"
+        - label: "`cache: false`"
+        - label: "`extra-args` used"
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: >-
+        Paste the failing step's log output. Use raw text, not screenshots. A link to the
+        public workflow run is also helpful.
+      render: text
+    validations:
+      required: true
+
+  - type: input
+    id: run-url
+    attributes:
+      label: Workflow run URL
+      description: Optional, but very helpful if the repo is public.
+      placeholder: "https://github.com/owner/repo/actions/runs/1234567890"
+    validations:
+      required: false

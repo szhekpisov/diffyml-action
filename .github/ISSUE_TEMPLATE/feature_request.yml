@@ -1,0 +1,67 @@
+name: Feature Request
+description: Suggest a new feature or improvement for the action
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea for the action? Describe the problem first — the best solutions come from understanding the use case.
+
+        For features in the diffyml CLI itself (output formats, comparison logic, filtering, etc.),
+        please open the request at https://github.com/szhekpisov/diffyml/issues instead.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: >-
+        What are you trying to accomplish in your workflow? What's painful or missing today?
+        Focus on the problem, not the solution.
+      placeholder: |
+        I want to comment the diff on the PR automatically when drift is detected, but...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: >-
+        Optional — describe what you'd like to see. The maintainer may design it differently,
+        so the problem description above is more important.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the action does this relate to?
+      options:
+        - Inputs / new flags
+        - Outputs / step output values
+        - Caching behavior
+        - Supply chain verification (cosign / SLSA / checksums)
+        - OS / architecture support
+        - Self-hosted runner support
+        - Documentation / examples
+        - PR comment / annotations integration
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any workarounds, other actions, or shell-step approaches you've tried.
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Links, screenshots, related issues, or anything else.
+    validations:
+      required: false
